@@ -18,11 +18,11 @@ parser.add_argument("--cache_dir", type=str, default=".")
 args, _ = parser.parse_known_args(argv[1:])
 DIRECTORY = args.output_directory
 
-os.makedirs(f"{DIRECTORY}/distilbert_proj/tokenizer", exist_ok=True)
+# os.makedirs(f"{DIRECTORY}/distilbert_proj/tokenizer", exist_ok=True)
 
-# Check which component is used for training
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Using device: {device}")
+# # Check which component is used for training
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# print(f"Using device: {device}")
 
 
 # %%
@@ -64,13 +64,15 @@ def compute_metrics(eval_pred):
 
 
 # %%
-base_model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=5, problem_type="multi_label_classification").to(device)
+base_model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=5, problem_type="multi_label_classification")
 
 base_training_args = TrainingArguments(
     output_dir="./base_output",
-    logging_steps=50,
+    num_train_epochs=3
     logging_dir="./logs_base_model",
-    per_device_eval_batch_size=16,
+    per_device_eval_batch_size=8,
+    eval_strategy="epoch",
+    fp16=True
 )
 
 base_trainer = Trainer(
