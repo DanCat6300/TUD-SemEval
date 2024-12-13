@@ -68,7 +68,7 @@ base_model = DistilBertForSequenceClassification.from_pretrained("distilbert-bas
 
 base_training_args = TrainingArguments(
     output_dir="./base_output",
-    num_train_epochs=3
+    num_train_epochs=3,
     logging_dir="./logs_base_model",
     per_device_eval_batch_size=8,
     eval_strategy="epoch",
