@@ -1,19 +1,27 @@
 # %%
-# %pip install transformers
-# %pip install datasets
-# %pip install torch
-# %pip install torch-directml
-
-
-# %%
+import os
+from sys import argv
+from argparse import ArgumentParser
 from datasets import load_dataset
 from transformers import DistilBertTokenizer, TrainingArguments, Trainer, DistilBertForSequenceClassification
 import torch
-import torch_directml as dml
 from torch.nn.functional import softmax
 from sklearn.metrics import f1_score, accuracy_score
 
-device = dml.device()
+parser = ArgumentParser()
+parser.add_argument("--output_directory", type=str)
+parser.add_argument("--language", type=str)
+parser.add_argument("--context_length", type=int, default=128)
+parser.add_argument("--epochs", type=int, default=5)
+parser.add_argument("--batch_size", type=int, default=64)
+parser.add_argument("--cache_dir", type=str, default=".")
+args, _ = parser.parse_known_args(argv[1:])
+DIRECTORY = args.output_directory
+
+os.makedirs(f"{DIRECTORY}/distilbert_proj/tokenizer", exist_ok=True)
+
+# Check which component is used for training
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 
@@ -73,11 +81,10 @@ base_trainer = Trainer(
     tokenizer=tokenizer,
     compute_metrics=compute_metrics
 )
-base_model.train()
 base_trainer.train()
 base_result = base_trainer.evaluate()
 print("Base model results:", base_result)
-
+base_trainer.save_model(f"{DIRECTORY}/distilbert_proj")
 
 # %%
 base_model.eval()
