@@ -41,7 +41,7 @@ def prepare_data(rows):
     labels = [[float(label) for label in example] for example in labels]
     tokenized_data = tokenizer(rows["text"], truncation=True, padding="max_length")
     tokenized_data["labels"] = labels
-    return tokenized_data
+    return tokenized_data.to(device)
 
 # Apply preprocessing
 tokenized_dataset = dataset.map(prepare_data, batched=True)
