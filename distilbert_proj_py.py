@@ -21,8 +21,8 @@ DIRECTORY = args.output_directory
 # os.makedirs(f"{DIRECTORY}/distilbert_proj/tokenizer", exist_ok=True)
 
 # # Check which component is used for training
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# print(f"Using device: {device}")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
 
 
 # %%
@@ -64,7 +64,11 @@ def compute_metrics(eval_pred):
 
 
 # %%
-base_model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=5, problem_type="multi_label_classification")
+base_model = DistilBertForSequenceClassification.from_pretrained(
+    "distilbert-base-uncased", 
+    num_labels=5, 
+    problem_type="multi_label_classification"
+).to(device)
 
 base_training_args = TrainingArguments(
     output_dir="./base_output",
