@@ -93,9 +93,9 @@ print("Base model results:", base_result)
 base_trainer.save_model(f"{DIRECTORY}/distilbert_proj")
 
 # %%
-eval_base_model = base_model.eval().to(device)
+eval_base_model = base_model.eval()
 text = "Tomorrow is my birthday"
-inputs = tokenizer(text, return_tensors='pt', truncation=True, padding=True)
+inputs = tokenizer(text, return_tensors='pt', truncation=True, padding=True).to(device)
 
 with torch.no_grad():
     outputs = eval_base_model(**inputs)
