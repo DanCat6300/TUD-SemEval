@@ -98,7 +98,7 @@ text = "Tomorrow is my birthday"
 inputs = tokenizer(text, return_tensors='pt', truncation=True, padding=True)
 
 with torch.no_grad():
-    outputs = base_model(**inputs)
+    outputs = base_model(**inputs).to(device)
 
 logits = outputs.logits
 
