@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+
+\usepackage[final]{acl}
+% Download the ACL style files from the link below.
+% You need the `acl.sty' and `acl_natbib.bst' files, keep these in the same
+% directory as your TeX file.
+% https://github.com/acl-org/acl-style-files/tree/master/latex
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+
+\title{Project Report Template for SecretLLM}
+
+\author{Andrey Sypachev \\
+  5126511\\
+  Module \\
+  \texttt{andrey.sypachev@mailbox.tu-dresden.de} 
+  \\\And
+  Second Author \\
+  Matriculation number\\
+  Module \\
+  \texttt{email@domain} 
+  \\}
+
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Why do language models need to recognize human emotions?
+When we read messages, posts or emails, we can easily miss important nuances of the author's mood and attitude towards a situation. If we understand the emotional coloring of a text, we can more accurately interpret the meaning and establish a closer connection with the person who wrote the message. Without recognizing emotions, we lose some of the context that affects the depth of communication. Communicating via chat can be a source of stress or, on the contrary, support. Recognizing the emotional coloring of the text helps to notice in time that someone may need help, support or at least a kind word. For example, algorithms that detect signs of depression in posts can help to intervene in time and suggest a person to consult a specialist [1]. Thanks to recognizing human emotions, we become more attentive and sensitive to the world around us. This makes life richer, brighter and more meaningful.
+This report focuses on describing the fine-tuning process of existing language models for emotion recognition on an English text dataset.
+
+\href{https://www.overleaf.com/project/67469c50cdaee20b5e17b6e9}{See this Template on Overleaf.}
+\end{abstract}
+
+\section{Introduction}
+
+Instructions: 
+\begin{enumerate}
+    \item Clone/copy this file and fill it with your content.
+    \item Write no more than 8 pages (references do not count towards this).
+    \item In ``Introduction'', briefly lay out the problem you address, and your contribution. Include an overview/teaser image.
+    \item In ``Related Work'', reference both (1) a selection of previous works on the same/similar problems (and try to differentiate your approach from those), (2) a set of foundational literature relevant to the problem, and your methodology.
+    \item ``Methodology'' lays out your technical approach, high-level, as well in technical detail. Subsections are highly recommended here (and also elsewhere).
+    \item ``Evaluation'' should contain both a quantitative and a qualitative evaluation of your results. If in doubt about metrics and evaluation methodologies, talk to us.
+    \item ``Discussion'' on the one hand builds upon the evaluation, and should critically discuss strengths and weaknesses of your solution, and possible ways to improve it further. On the other hand, it should discuss relevant ethical questions related to the problem and/or your solution at hand.
+\end{enumerate}
+
+
+
+
+\section{Related Work}
+
+An example citation: \cite{dijkstra1968goto}.
+
+
+\section{Methodology}
+
+\section{Evaluation}
+
+\section{Discussion}
+
+
+\section{Contribution statement}
+
+If you work in a team, describe here briefly who did what.
+
+\bibliography{references}
+% Create a file `references.bib'
+% 
+% @article{dijkstra1968goto,
+%   title={Go To Statement Considered Harmful (1968)},
+%   inproceedings={CACM},
+%   author={Dijkstra, Edsger},
+%   year={2021}
+% }
+
+\end{document}
