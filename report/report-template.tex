@@ -16,17 +16,17 @@
 \usepackage{graphicx}
 
 
-\title{Project Report Template for SecretLLM}
+\title{SemEval - Fine-tuning LLM for sentiment classification}
 
 \author{Andrey Sypachev \\
   5126511\\
   Module \\
   \texttt{andrey.sypachev@mailbox.tu-dresden.de} 
   \\\And
-  Second Author \\
-  Matriculation number\\
-  Module \\
-  \texttt{email@domain} 
+  Long Tran \\
+  5192922\\
+  M1101-CMS72 \\
+  \texttt{long.tran@mailbox.tu-dresden.de} 
   \\}
 
 
@@ -42,19 +42,9 @@ This report focuses on describing the fine-tuning process of existing language m
 
 \section{Introduction}
 
-Instructions: 
-\begin{enumerate}
-    \item Clone/copy this file and fill it with your content.
-    \item Write no more than 8 pages (references do not count towards this).
-    \item In ``Introduction'', briefly lay out the problem you address, and your contribution. Include an overview/teaser image.
-    \item In ``Related Work'', reference both (1) a selection of previous works on the same/similar problems (and try to differentiate your approach from those), (2) a set of foundational literature relevant to the problem, and your methodology.
-    \item ``Methodology'' lays out your technical approach, high-level, as well in technical detail. Subsections are highly recommended here (and also elsewhere).
-    \item ``Evaluation'' should contain both a quantitative and a qualitative evaluation of your results. If in doubt about metrics and evaluation methodologies, talk to us.
-    \item ``Discussion'' on the one hand builds upon the evaluation, and should critically discuss strengths and weaknesses of your solution, and possible ways to improve it further. On the other hand, it should discuss relevant ethical questions related to the problem and/or your solution at hand.
-\end{enumerate}
+Human communication is inherently complex, and we frequently use language in indirect ways to express our emotions. We might say one thing while meaning another, particularly when dealing with sensitive topics, criticism and making jokes. This discrepancy between literal words and intended emotional meaning makes accurately guessing someone's emotional state a significant challenge. Oral communication's emotional interpretation is already challenging, interpretation of written text is even more problematic due to missing tones and facial expressions. Furthermore, individuals vary in how they express and perceive emotions, adding another layer of complexity. One person's innocent comment might be interpreted as offensive by another. Therefore, we can never be entirely certain about the true emotions of someone behind a written message.
 
-
-
+While the task of understanding emotions expressed in texts can be framed as a multi-label classification problem, where multiple emotions might be present simultaneously, the real difficulty lies in the subtle difference between the sentiment expressed in the text itself and the actual emotion being felt by the speaker. The words might be of one emotion, but the tone of voice or context might express another another. To attempt to aid human in sentiment detection in texts, we attempt to fine-tune the large language model (LLM) Bert, in particular, Bert-Large to classify text snippets by emotions: joy, sadness, fear, anger, and surprise. In section 2, we will mention the different models involved in our experiments. In section 3, we describe in detail the different models and the training parameters we experimented on. Next, in section 4, we evaluate the results produced by different models and the effects of the parameters described in the previous section, judging by the F-score. After that, we will discuss what other methods can potentially be applied to further improve the score and fine-tune the model more efficiently for the multi-label text classification task. 
 
 \section{Related Work}
 
@@ -72,6 +62,17 @@ An example citation: \cite{dijkstra1968goto}.
 
 If you work in a team, describe here briefly who did what.
 
+Instructions: 
+\begin{enumerate}
+    \item Clone/copy this file and fill it with your content.
+    \item Write no more than 8 pages (references do not count towards this).
+    \item In ``Introduction'', briefly lay out the problem you address, and your contribution. Include an overview/teaser image.
+    \item In ``Related Work'', reference both (1) a selection of previous works on the same/similar problems (and try to differentiate your approach from those), (2) a set of foundational literature relevant to the problem, and your methodology.
+    \item ``Methodology'' lays out your technical approach, high-level, as well in technical detail. Subsections are highly recommended here (and also elsewhere).
+    \item ``Evaluation'' should contain both a quantitative and a qualitative evaluation of your results. If in doubt about metrics and evaluation methodologies, talk to us.
+    \item ``Discussion'' on the one hand builds upon the evaluation, and should critically discuss strengths and weaknesses of your solution, and possible ways to improve it further. On the other hand, it should discuss relevant ethical questions related to the problem and/or your solution at hand.
+\end{enumerate}
+
 \bibliography{references}
 % Create a file `references.bib'
 % 
@@ -81,5 +82,6 @@ If you work in a team, describe here briefly who did what.
 %   author={Dijkstra, Edsger},
 %   year={2021}
 % }
+
 
 \end{document}
