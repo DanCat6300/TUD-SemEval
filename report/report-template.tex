@@ -21,12 +21,10 @@
 \author{Andrey Sypachev \\
   5126511\\
   Module \\
-  \texttt{andrey.sypachev@mailbox.tu-dresden.de} 
   \\\And
   Long Tran \\
   5192922\\
   M1101-CMS72 \\
-  \texttt{long.tran@mailbox.tu-dresden.de} 
   \\}
 
 
@@ -52,6 +50,14 @@ An example citation: \cite{dijkstra1968goto}.
 
 
 \section{Methodology}
+In this section, we will describe the fine-tuning process, technology and necessary components used during the fine-tuning process. 
+
+We apply Hugging Face framework for the process to achieve efficiency while maintaining simplicity. A fixed dataset was acquired from the from Codabench, an open-source platform allowing you to organize AI benchmarks. The dataset is then tokenised and split into smaller fractions for training and evaluation. A pre-trained LLM model is then selected from Hugging Face’s library. Next, we conducted  experiments on the training arguments and save the LLM model with the best F-score. After that, the fine-tuned model is used to perform test prediction on examples. 
+\subsection{Dataset}
+\subsection{Pre-trained Model}
+\subsection{Training Arguments}
+\subsection{Compute Metrics}
+\subsection{Explainer}
 
 \section{Evaluation}
 
