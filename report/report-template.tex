@@ -124,10 +124,13 @@ In summary, we were able to fine-tune a pretrained BERT-large model to perform a
 
 [10] Prusa, J., Khoshgoftaar, T. M., \& Seliya, N. (2015, December). The effect of dataset size on training tweet sentiment classifiers. In 2015 IEEE 14th International Conference on Machine Learning and Applications (ICMLA) (pp. 96-102). IEEE.
 
+\clearpage
+\onecolumn
 \section{Appendix}
+
 \begin{table}[htp]
 \caption{BERT performance comparison}
-\begin{center}
+\centering
 \begin{tabular}{|l|l|l|l|}
 \hline
 \textbf{Model} & \textbf{Training Loss} & \textbf{Validation Loss} & \textbf{F1-score} \\ \hline
@@ -138,10 +141,26 @@ bert-base-uncased       & 24.4 & 37.0 & 74.0 \\ \hline
 bert-large-cased        & 17.4 & \textbf{36.6} & \textbf{78.0} \\ \hline
 bert-large-uncased      & \textbf{16.0} & 39.3 & 75.2 \\ \hline
 \end{tabular}
-\end{center}
-\label{default}
+\label{tab:bert_performance}
 \end{table}
-\section{Contribution statement}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/figure1.jpg}
+    \caption{SHAP analysis result of the 3rd sentence in the test dataset for the label “anger”}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/figure2.jpg}
+    \caption{SHAP analysis result of the 3rd sentence in the test dataset for the label “sadness”}
+    \label{fig:figure2}
+\end{figure}
+
+\clearpage
+\twocolumn
+
 
 If you work in a team, describe here briefly who did what.
 
